@@ -21,8 +21,6 @@ const App = () => {
       neutral: 0,
       bad: 0,
     });
-
-    setShowFeedback(false);
   };
 
   const [feedback, setFeedback] = useState(() => {
@@ -35,20 +33,11 @@ const App = () => {
     return { good: 0, neutral: 0, bad: 0 };
   });
 
-  const [showFeedback, setShowFeedback] = useState(false);
-
   useEffect(() => {
-    handleShowFeedback();
     window.localStorage.setItem("savedFeedback", JSON.stringify(feedback));
   }, [feedback]);
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-
-  const handleShowFeedback = () => {
-    if (totalFeedback > 0) {
-      setShowFeedback((prevState) => true);
-    }
-  };
 
   return (
     <>
@@ -58,7 +47,7 @@ const App = () => {
         totalFeedback={totalFeedback}
         handleReset={resetFeedback}
       />
-      {showFeedback ? (
+      {totalFeedback !== 0 ? (
         <Feedback feedback={feedback} totalFeedback={totalFeedback} />
       ) : (
         <Notification />
