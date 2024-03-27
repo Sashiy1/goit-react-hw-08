@@ -3,16 +3,16 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 import { RiContactsFill } from "react-icons/ri";
 
-const Contact = ({ contactsData }) => {
-  console.log(contactsData);
+const Contact = ({ contacts, onDeleteContact }) => {
+  console.log(contacts);
 
   return (
     <ul className={css.contactList}>
-      {contactsData.map((contact) => (
+      {contacts.map((contact) => (
         <li className={css.contactItem} key={contact.id}>
           <p className={css.contactText}><RiContactsFill />   {contact.name}</p>
           <p className={css.contactText}><FaPhoneAlt />   {contact.number}</p>
-          <button className={css.contactBtn}>Delete</button>
+          <button  onClick={() => onDeleteContact(contact.id)} className={css.contactBtn}>Delete</button>
         </li>
       ))}
     </ul>
@@ -20,5 +20,6 @@ const Contact = ({ contactsData }) => {
 };
 
 export default Contact;
+
 
 

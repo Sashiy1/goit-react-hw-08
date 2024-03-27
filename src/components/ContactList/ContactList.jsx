@@ -2,11 +2,11 @@ import css from "./ContactList.module.css"
 import Contact from "../Contact/Contact";
 
 
-const ContactList = ({contactsData}) => {
+const ContactList = ({contacts, onDeleteContact}) => {
     
     return (
         <>
-        <Contact contactsData={contactsData} />
+        <Contact contacts={contacts} onDeleteContact={onDeleteContact}/>
         </>
     )
 
