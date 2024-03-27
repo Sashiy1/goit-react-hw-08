@@ -1,0 +1,20 @@
+.contactList {
+   margin-top: 10px;
+}
+.contactItem {
+    margin-bottom: 10px;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 8px 12px;
+    position: relative;
+}
+.contactText {
+  
+
+}
+.contactBtn {
+    padding: 3px 12px;
+    position: absolute;
+    right: 8px;
+    top: 17px;
+}
