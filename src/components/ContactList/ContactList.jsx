@@ -5,10 +5,12 @@ import Contact from "../Contact/Contact";
 const ContactList = ({contacts, onDeleteContact}) => {
     
     return (
-        <>
-        <Contact contacts={contacts} onDeleteContact={onDeleteContact}/>
-        </>
-    )
+        <ul className={css.contactList}>
+          {contacts.map((contact) => (
+             <Contact contact={contact} onDeleteContact={onDeleteContact} key={contact.id}/>   
+          ))}
+        </ul>
+      );
 
 };
 
@@ -17,3 +19,5 @@ const ContactList = ({contacts, onDeleteContact}) => {
 
 
 export default ContactList;
+
+
