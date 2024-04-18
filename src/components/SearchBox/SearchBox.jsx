@@ -8,7 +8,9 @@ const SearchBox = ({ value, onFilter }) => {
         className={css.searchInput}
         type="text"
         value={value}
-        onChange={(e) => onFilter(e.target.value)}
+        onChange={(e) => {console.log('e.target.value: ', e.target.value);
+          onFilter(e.target.value)}}
+          
       />
     </div>
   );

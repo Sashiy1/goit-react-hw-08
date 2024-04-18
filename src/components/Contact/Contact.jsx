@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { RiContactsFill } from "react-icons/ri";
 
 const Contact = ({ contact, onDeleteContact }) => {
-  console.log(contact);
+
 
   return (
     <li className={css.contactItem} key={contact.id}>
