@@ -1,7 +1,9 @@
 import css from "./ContactForm.module.css";
 import * as Yup from "yup";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-
+import { nanoid } from "nanoid";
+import { addContact } from "../../redux/contactsSlice";
+import { useDispatch } from "react-redux";
 
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -12,68 +14,61 @@ const ContactFormSchema = Yup.object().shape({
 });
 
 const INITIAL_FORM_DATA = {
-  
   name: "",
-  number: ""
-}
+  number: "",
+};
 
-
-const ContactForm = ({onAddNewContact}) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
 
   const handleSubmit = (data, formActions) => {
-    onAddNewContact(data);
+    const newContact = {
+      ...data,
+      id: nanoid(),
+    };
+
+    dispatch(addContact(newContact));
     formActions.resetForm();
   };
 
   return (
-    <Formik
-    validationSchema={ContactFormSchema}
-      initialValues={INITIAL_FORM_DATA}
-      onSubmit={handleSubmit}
-    
-    
-    >
-      <Form className={css.form}>
-        <label className={css.label}>
-          <span className={css.labelText}>Name</span>
+    <>
+      <h1>Phonebook</h1>
+      <Formik
+        validationSchema={ContactFormSchema}
+        initialValues={INITIAL_FORM_DATA}
+        onSubmit={handleSubmit}
+      >
+        <Form className={css.form}>
+          <label className={css.label}>
+            <span className={css.labelText}>Name</span>
 
-          <Field
-            className={css.formInput}
-
-            type="text"
-            name="name"
-          />
-          <ErrorMessage
-            className={css.errorMsg}
-            name="name"
-            component="span"
-          />
-        </label>
-        <label className={css.label}>
-          <span className={css.labelText}>Number</span>
-          <Field
-            className={css.formInput}
-            
-            type="phone"
-            name="number"
-          />
-          <ErrorMessage
-            className={css.errorMsg}
-            name="number"
-            component="span"
-          />
-        </label>
-        <button 
-        
-          className={css.FormBtn}
-          type="submit"
-          aria-label="Add new contact"
-          
-        >
-          Add contact
-        </button>
-      </Form>
-    </Formik>
+            <Field className={css.formInput} type="text" name="name" />
+            <ErrorMessage
+              className={css.errorMsg}
+              name="name"
+              component="span"
+            />
+          </label>
+          <label className={css.label}>
+            <span className={css.labelText}>Number</span>
+            <Field className={css.formInput} type="phone" name="number" />
+            <ErrorMessage
+              className={css.errorMsg}
+              name="number"
+              component="span"
+            />
+          </label>
+          <button
+            className={css.FormBtn}
+            type="submit"
+            aria-label="Add new contact"
+          >
+            Add contact
+          </button>
+        </Form>
+      </Formik>
+    </>
   );
 };
 
