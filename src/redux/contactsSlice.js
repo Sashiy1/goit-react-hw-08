@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   contacts: {
-    items: null,
+    items: [],
   },
   filters: {
     name: "",
@@ -16,9 +16,6 @@ const contactsSlice = createSlice({
   initialState: INITIAL_STATE,
 
   reducers: {
-    setContacts(state, action) {
-      state.contacts.items = action.payload;
-    },
     addContact(state, action) {
       state.contacts.items.push(action.payload);
     },
@@ -31,12 +28,7 @@ const contactsSlice = createSlice({
 });
 
 // Генератори екшенів
-export const {
-  setContacts,
-  addContact,
-  deleteContact,
-} = contactsSlice.actions;
+export const { addContact, deleteContact } = contactsSlice.actions;
 
 // Редюсер слайсу
 export const contactsReducer = contactsSlice.reducer;
-
