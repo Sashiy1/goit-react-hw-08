@@ -29,13 +29,11 @@ const ContactList = () => {
   }, [dispatch]);
 
   const visibleContacts =
- 
     contacts && Array.isArray(contacts)
       ? contacts.filter((contact) =>
           contact.name.toLowerCase().includes(filter.toLowerCase())
         )
       : [];
-      console.log('visibleContacts: ', visibleContacts);
 
   return (
     <ul className={css.contactList}>
