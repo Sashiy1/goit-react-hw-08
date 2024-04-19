@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { nanoid } from "nanoid";
 import {
-  setAddContact,
+  addContact,
   setContacts,
-  setDeleteContact,
+  deleteContact,
 } from "../../redux/contactsSlice";
-import { setFilter } from "../../redux/filtersSlice";
+import { changeFilter  } from "../../redux/filtersSlice";
 
 const initialContacts = [
   { id: "id-1", name: "Rosie Simpson", number: "459-12-56" },
@@ -27,8 +27,8 @@ const newContacts = [
 ];
 
 const App = () => {
-  const contacts = useSelector((state) => state.contactsDetails.contacts.items);
-  const filter = useSelector((state) => state.filtersDetails.filters.name);
+  const selectContacts  = useSelector((state) => state.contactsDetails.contacts.items);
+  const selectNameFilter  = useSelector((state) => state.filtersDetails.filters.name);
 
   const dispatch = useDispatch();
 
@@ -52,13 +52,13 @@ const App = () => {
       id: nanoid(),
     };
 
-    dispatch(setAddContact(newContact));
+    dispatch(addContact(newContact));
   };
   const handleDelete = (conactId) => {
-    dispatch(setDeleteContact(conactId));
+    dispatch(deleteContact(conactId));
   };
   const handleFilter = (value) => {
-    dispatch(setFilter(value));
+    dispatch(changeFilter (value));
   };
 
   return (
@@ -66,11 +66,11 @@ const App = () => {
       <h1 className="appTitle">Phonebook</h1>
       <ContactForm onAddNewContact={onAddNewContact} />
 
-      <SearchBox value={filter} onFilter={handleFilter} />
-      {contacts && Array.isArray(contacts) && (
+      <SearchBox  onFilter={handleFilter} />
+      {selectContacts && Array.isArray(selectContacts) && (
         <ContactList
-          contacts={contacts}
-          filter={filter}
+          contacts={selectContacts}
+          filter={selectNameFilter }
           onDeleteContact={handleDelete}
         />
       )}

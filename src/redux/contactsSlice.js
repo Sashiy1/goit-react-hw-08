@@ -19,10 +19,10 @@ const contactsSlice = createSlice({
     setContacts(state, action) {
       state.contacts.items = action.payload;
     },
-    setAddContact(state, action) {
+    addContact(state, action) {
       state.contacts.items.push(action.payload);
     },
-    setDeleteContact(state, action) {
+    deleteContact(state, action) {
       state.contacts.items = state.contacts.items.filter(
         (contact) => contact.id !== action.payload
       );
@@ -33,8 +33,8 @@ const contactsSlice = createSlice({
 // Генератори екшенів
 export const {
   setContacts,
-  setAddContact,
-  setDeleteContact,
+  addContact,
+  deleteContact,
 } = contactsSlice.actions;
 
 // Редюсер слайсу

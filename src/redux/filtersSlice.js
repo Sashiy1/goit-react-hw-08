@@ -16,14 +16,14 @@ const filterSlice = createSlice({
   initialState: INITIAL_STATE,
 
   reducers: {
-    setFilter(state, action) {
+    changeFilter (state, action) {
       state.filters.name = action.payload;
     },
   },
 });
 
 // Генератори екшенів
-export const { setFilter } = filterSlice.actions;
+export const { changeFilter  } = filterSlice.actions;
 
 // Редюсер слайсу
 export const filterReducer = filterSlice.reducer;
