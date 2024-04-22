@@ -11,7 +11,7 @@ const ContactList = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(apiGetContacts)
+    dispatch(apiGetContacts())
 
   }, [dispatch])
 
