@@ -1,8 +1,22 @@
 import css from "./ContactList.module.css";
 import Contact from "../Contact/Contact";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { apiGetContacts } from "../../redux/contactsOps";
+
+
 
 const ContactList = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(apiGetContacts)
+
+  }, [dispatch])
+
+  
+
   const contacts = useSelector((state) => state.contactsDetails.contacts.items);
 
   const filter = useSelector((state) => state.filtersDetails.filters.name);

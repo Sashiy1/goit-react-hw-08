@@ -2,12 +2,14 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   contacts: {
-    items: null,
+    items: [],
+    loading: false,
+    error: null
   },
   filters: {
-    name: "",
-  },
-};
+		name: ""
+	}
+}
 
 const filterSlice = createSlice({
   // Ім'я слайсу

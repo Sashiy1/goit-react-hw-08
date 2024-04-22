@@ -1,13 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { apiGetContacts } from "./contactsOps";
+
+
 
 const INITIAL_STATE = {
   contacts: {
     items: [],
+    loading: false,
+    error: null
   },
   filters: {
-    name: "",
-  },
-};
+		name: ""
+	}
+}
+
+
+
+
 
 const contactsSlice = createSlice({
   // Ім'я слайсу
@@ -25,6 +34,19 @@ const contactsSlice = createSlice({
       );
     },
   },
+  extraReducers: (builder) => builder
+  .addCase(apiGetContacts.pending, (state) => {
+    state.contacts.loading = true;
+    state.contacts.error = false; 
+  })
+  .addCase(apiGetContacts.fulfilled, (state, action) => {
+    state.contacts.loading = false;
+    state.contacts.items = action.payload
+  })
+  .addCase(apiGetContacts.rejected, (state) => {
+    state.contacts.loading = false;
+    state.contacts.error = true; 
+  })
 });
 
 // Генератори екшенів
