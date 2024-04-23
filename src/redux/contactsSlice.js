@@ -49,11 +49,9 @@ const contactsSlice = createSlice({
         state.contacts.error = false;
       })
       .addCase(apiDeleteContact.fulfilled, (state, action) => {
-        console.log("action: ", action.payload);
         state.contacts.loading = false;
-
         state.contacts.items = state.contacts.items.filter(
-          (contact) => contact.id !== action.payload
+          (item) => item.id !== action.payload.id
         );
       })
       .addCase(apiDeleteContact.rejected, (state) => {
