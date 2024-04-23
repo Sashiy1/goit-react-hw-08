@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { selectContacts } from "./contactsSlice";
 
 const INITIAL_STATE = {
   contacts: {
@@ -26,6 +27,15 @@ const filterSlice = createSlice({
 
 // Генератори екшенів
 export const { changeFilter  } = filterSlice.actions;
+
+export const selectFilter = ((state) => state.filtersDetails.filters.name)
+
+
+
+export const selectFiltredContacts = createSelector(
+  [selectContacts, selectFilter], (contacts, filter) => contacts.filter((contact) =>
+  contact.name.toLowerCase().includes(filter.toLowerCase()) ||  contact.number.includes(filter))
+)
 
 // Редюсер слайсу
 export const filterReducer = filterSlice.reducer;

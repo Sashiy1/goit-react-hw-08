@@ -60,8 +60,12 @@ const contactsSlice = createSlice({
       }),
 });
 
-// Генератори екшенів
-export const { addContact, deleteContact } = contactsSlice.actions;
+// // Генератори екшенів
+// export const { addContact, deleteContact } = contactsSlice.actions;
+
+export const selectContacts = (state) => state.contactsDetails.contacts.items;
+export const selectContactsDetailsIsLoading = (state) => state.contactsDetails.contacts.loading;
+export const selectContactsDetailsIsError = (state) => state.contactsDetails.contacts.error;
 
 // Редюсер слайсу
 export const contactsReducer = contactsSlice.reducer;
