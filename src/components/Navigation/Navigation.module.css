@@ -1,0 +1,21 @@
+.nav {
+    display: flex;
+    gap: 28px;
+    padding: 20px 40px;
+    font-size: 22px;
+  
+    transition: all 0.3s;
+  }
+  
+  .active {
+    color: rgb(193, 13, 13);
+  }
+  
+  .navLink {
+    text-decoration: none;
+  }
+
+  .navLink:hover {
+    color: rgb(193, 13, 13);
+  }
+  
