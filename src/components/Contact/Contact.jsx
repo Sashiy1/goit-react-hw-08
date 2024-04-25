@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { apiDeleteContact } from "../../redux/contacts/operations";
 
 
+
 const Contact = ({ contact }) => {
 
 
