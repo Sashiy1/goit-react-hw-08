@@ -3,7 +3,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 import { RiContactsFill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { apiDeleteContact } from "../../redux/contactsOps";
+import { apiDeleteContact } from "../../redux/contacts/operations";
 
 
 const Contact = ({ contact }) => {

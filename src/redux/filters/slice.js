@@ -27,12 +27,5 @@ const filterSlice = createSlice({
 
 // Генератори екшенів
 export const { changeFilter  } = filterSlice.actions;
-
-export const selectFilter = ((state) => state.filtersDetails.filters.name)
-
-
-
-
-
 // Редюсер слайсу
 export const filterReducer = filterSlice.reducer;
