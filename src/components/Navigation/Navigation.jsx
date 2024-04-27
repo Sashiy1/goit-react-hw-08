@@ -1,10 +1,15 @@
 import clsx from "clsx";
 import css from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoggedIn, selectUserName } from "../../redux/auth/selectors";
+import { apiLogoutUser } from "../../redux/auth/operations";
 
 const Navigation = () => {
+  const dispatch = useDispatch()
+  const onLogout = () => {
+    dispatch(apiLogoutUser())
+  }
   const getActiveStyles = ({ isActive }) =>
     clsx(css.navLink, {
       [css.active]: isActive,
@@ -39,7 +44,7 @@ const Navigation = () => {
             Contacts
           </NavLink>
           <span>Welcome {userName}</span>
-          <button>Log Out</button>
+          <button type="button" onClick={onLogout}>Log Out</button>
         </>
       )}
     </nav>

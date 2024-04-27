@@ -1,7 +1,9 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
+  clearToken,
   requestCurrentUser,
   requestLogIn,
+  requestLogOut,
   requestSignUp,
   setToken,
 } from "../../services/contacts.api";
@@ -15,7 +17,7 @@ export const apiRegisterUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -29,7 +31,7 @@ export const apiLoginUser = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error);
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
@@ -46,6 +48,21 @@ export const apiRefreshUser = createAsyncThunk(
       console.log("data: ", data);
 
       return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+
+export const apiLogoutUser = createAsyncThunk(
+  "auth/logout",
+  async (_, thunkAPI) => {
+    try {
+       await requestLogOut();
+      
+       clearToken()
+      return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

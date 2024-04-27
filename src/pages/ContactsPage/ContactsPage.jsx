@@ -16,6 +16,7 @@ const ContactsPage = () => {
 
   return (
     <div>
+      <h1>contatcs</h1>
       <ContactForm />
       <SearchBox />
       {isError && <p>Oooops something went wrong</p>}
