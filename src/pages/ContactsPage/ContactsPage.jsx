@@ -9,6 +9,7 @@ import {
 } from "../../redux/contacts/selectors";
 import Loader from "../../components/Loader/Loader";
 
+
 const ContactsPage = () => {
   const isLoading = useSelector(selectContactsDetailsIsLoading);
   const isError = useSelector(selectContactsDetailsIsError);
