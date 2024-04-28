@@ -11,7 +11,9 @@ const ContactFormSchema = Yup.object().shape({
     .min(3, "User name must be at least 3 characters!")
     .max(30, "User name must be less than 30 characters!")
     .required("User name is required!"),
-  number: Yup.string().required("Number is required"),
+  number: Yup.string()
+  .matches(/^\d{3}-\d{3}-\d{3}$/, 'enter a number in the format xxx-xxx-xxx')
+  .required('Required'),
 });
 
 const INITIAL_FORM_DATA = {

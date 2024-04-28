@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
 import Navigation from "../Navigation/Navigation";
 import { selectIsLoggedIn, selectIsRefreshing } from "../../redux/auth/selectors";
-import AuthNav from "../Navigation/AuthNav/AuthNav";
+
 import UserMenu from "../UserMenu/UserMenu";
+import AuthNav from "../AuthNav/AuthNav";
 
 
 const AppBar = () => {
@@ -11,7 +12,7 @@ const AppBar = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
     return (
-        <header >
+        <header  >
           <Navigation />
           {!isRefreshing && <div>{isLoggedIn ? <UserMenu /> : <AuthNav />}</div>}
         </header>

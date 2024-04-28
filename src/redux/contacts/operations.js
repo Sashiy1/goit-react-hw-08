@@ -11,7 +11,7 @@ export const apiGetContacts = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const data = await requestUserContacts();
-      console.log("data: ", data);
+    
 
       return data;
     } catch (error) {
@@ -25,7 +25,7 @@ export const apiAddContact = createAsyncThunk(
   async (info, thunkAPI) => {
     try {
       const data = requestAddContact(info);
-      console.log("data: ", data);
+
 
       return data;
     } catch (error) {
@@ -38,7 +38,7 @@ export const apiDeleteContact = createAsyncThunk(
   async (id, thunkAPI) => {
     try {
       const data = requestDeleteContact(id);
-      console.log("data: ", data);
+
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

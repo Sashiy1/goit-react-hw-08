@@ -1,25 +1,15 @@
-.form {
-    
-    width: 352px;
-    
-  
-}
+
 .label {
     display: flex;
     flex-direction: column;
 }
-/* .labelText {
+.labelText {
+font-size: 18px;
+margin-left: 10px;
+margin-bottom: 4px;
+}
 
-} */
-.formInput {
-    padding: 6px 12px;
-    margin-bottom: 12px;
-}
-.FormBtn {
-    display: block;
-    margin: auto;
-    padding: 6px 12px;
-}
+
 
 .errorMsg {
     color: red;
@@ -36,7 +26,7 @@
 .formInput {
     padding: 8px 10px;
     width: 320px;
-    
+    margin-bottom: 8px;
     font-size: 18px;
     border-radius: 4px;
     outline: none;
@@ -50,20 +40,28 @@
       box-shadow: 0 0 5px #4d4d4d;
   }
   
+ 
+
   .FormBtn {
-      font-size: 18px;
-      padding: 8px 12px;
-      border: 2px solid #a9a9a9;
-      border-radius: 4px;
-      background-color: #fff;
-      color: #333;
-      
-      cursor: pointer;
-      transition: all 0.3s ease;
-  }
-  
-  .FormBtn:hover,  
-  .FormBtn:focus {
-      border-color: #4d4d4d;
-      box-shadow: 0 0 5px #4d4d4d;
-  }
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border: 2px solid #a9a9a9;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    margin: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+}
+
+.FormBtn:hover,  
+.FormBtn:focus {
+    border-color: blue;
+    box-shadow: 0 0 5px #4d4d4d;
+}

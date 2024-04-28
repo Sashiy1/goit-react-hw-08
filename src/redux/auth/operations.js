@@ -27,7 +27,6 @@ export const apiLoginUser = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const data = await requestLogIn(formData);
-      console.log("data: ", data.user);
 
       return data;
     } catch (error) {
@@ -45,13 +44,11 @@ export const apiRefreshUser = createAsyncThunk(
 
     try {
       const data = await requestCurrentUser();
-      console.log("data: ", data);
 
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
- 
   },
   {
     condition: (_, thunkAPI) => {
@@ -60,18 +57,17 @@ export const apiRefreshUser = createAsyncThunk(
 
       if (!token) return false;
       return true;
-    }
+    },
   }
 );
-
 
 export const apiLogoutUser = createAsyncThunk(
   "auth/logout",
   async (_, thunkAPI) => {
     try {
-       await requestLogOut();
-      
-       clearToken()
+      await requestLogOut();
+
+      clearToken();
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

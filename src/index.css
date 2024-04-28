@@ -9,6 +9,8 @@ body {
   
   }
   
+
+
   h1,
   h2,
   h3,
@@ -35,4 +37,10 @@ body {
     border-collapse: collapse;
     border: 0;
     border-spacing: 0;
+  }
+
+
+  header {
+    display: flex;
+    justify-content: space-between;
   }
