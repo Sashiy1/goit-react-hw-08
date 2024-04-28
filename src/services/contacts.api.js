@@ -34,3 +34,11 @@ export const requestCurrentUser = async () => {
   const { data } = await instance.get("/users/current");
   return data;
 };
+
+
+// export const requestUserContacts = async () => {
+//   const {data} = await instance.get("/contacts")
+//   console.log('data: ', data);
+
+//   return data;
+// }
