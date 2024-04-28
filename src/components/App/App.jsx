@@ -1,6 +1,6 @@
 import Navigation from "../Navigation/Navigation";
 import Loader from "../Loader/Loader";
-import { apiGetContacts } from "../../redux/contacts/operations";
+
 
 import { useDispatch } from "react-redux";
 import { Suspense, lazy, useEffect } from "react";
@@ -23,7 +23,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(apiGetContacts());
+    
     dispatch(apiRefreshUser());
   }, [dispatch]);
 

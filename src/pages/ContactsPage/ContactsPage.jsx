@@ -19,7 +19,7 @@ const ContactsPage = () => {
       
       <ContactForm />
       <SearchBox />
-      {isError && <p>There are no contacts!</p>}
+      {isError && <p>Error</p>}
       {isLoading && <Loader />}
       <ContactList />
     </div>
