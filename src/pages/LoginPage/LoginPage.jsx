@@ -5,7 +5,7 @@ import css from "./LoginPage.module.css"
 const LoginPage = () => {
   return (
     <div className={css.loginFormBox}>
-      <h1>Please Login</h1>
+      <h1>Please Log In</h1>
       <LoginForm />
       <span className={css.redirectText} >Dont have an account?  <Link className={css.redirectLink} to="/register">Sign Up</Link></span>
      
